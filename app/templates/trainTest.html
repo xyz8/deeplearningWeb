@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}deep learning{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>{% if isTrain %} 训练已经完成！{% elif isTest %} 测试已经完成！{% else %}训练时间比较久，除非你有更好的设置，否则不要删除原有模型！{%endif%}</h1>
+</div>
+<style>
+#trainform{
+    width: 40%;
+    height: 100%;
+    float: left;
+}
+#testform{
+    width: 40%;
+    height: 100%;
+    float: right;
+}
+</style>
+<div id="trainform">
+<h2>训练参数</h2>
+{{ wtf.quick_form(train_form) }}
+</div>
+<div id="testform"> 
+<h2>测试文件</h2>
+{{ wtf.quick_form(test_form) }}
+</div>   
+{% endblock %}
+
+{% block content %}
+{{super()}}
+<style>
+#footer {
+	position: absolute;
+	bottom: 0;
+	height: 30px;
+	width: 100%;
+ 	left: 60%;
+} 
+</style>
+
+<div id="footer">
+deeplearningWeb V1   &nbsp&nbsp by 郑梓权，肖隆韬，温典霖，周福勇
+</div> 
+{% endblock %}

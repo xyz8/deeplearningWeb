@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}deep learning{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>{% if words %}we had given our words{%else%}why don't you try push some words?{%endif%}!</h1>
+</div>
+<style>
+#form{
+    width: 40%;
+    height: 100%;
+    float: left;
+}
+#word{
+    width: 60%;
+    height: 100%;
+    float: left;
+}
+</style>
+<div id="form">
+<h2>输入你的词</h2>
+{{ wtf.quick_form(word_form) }}
+</div>
+<div id="word"> 
+<p><h2>该词的相似词如下:（词汇-相关度）</h2>
+<font size="5"><br>
+{% if words %}
+	{% for i,j in words%}
+		{{i}}:{{j}}<br>
+	{%endfor%}
+{% endif %}</font></p>
+</div>   
+{% endblock %}

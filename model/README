@@ -1,0 +1,9 @@
+douban 源数据
+data 处理后的数据
+	test.csv 测试 train.csv 训练
+dataProcess.py 用于预处理源数据
+word2vec.py 是把test.csv和train.csv一起训练，时间大概为一个下午
+test_model.py 用于测试word2vec
+sentiment_model.py 用于训练以及保存lstm模型
+迭代数的极限:建议不要太高
+

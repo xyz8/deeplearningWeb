@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}deep learning{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>{% if sen %}i guess this is a {{ sen }} sentence {% elif result%}Prediction of the sentences were done!{%else%}Hello, My firends{% endif %}!</h1>
+</div>
+<style>
+#form1{
+    width: 40%;
+    height: 20%;
+}
+#form2{
+    width: 500px;
+    height: 20px;
+}
+</style>
+<div id="form1">
+<h2>1.这里可以测试一个单独句子</h2>
+{{ wtf.quick_form(Singleform) }}
+</div>
+<div id="form2">
+<h2>2.这里可以帮你预测一个文件</h2>
+{{ wtf.quick_form(Fileform) }}
+</div>
+{% endblock %}
